@@ -10,9 +10,9 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-//            Tab("Home", systemImage: "home"){
-//                Text("Home text")
-//            }
+            //            Tab("Home", systemImage: "home"){
+            //                Text("Home text")
+            //            }
             HomeView()
                 .tabItem {
                     // init comment
@@ -35,6 +35,7 @@ struct ContentView: View {
                 }
             
         }
+
     }
 }
 
