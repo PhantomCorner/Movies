@@ -15,7 +15,7 @@ struct ContentView: View {
 //            }
             HomeView()
                 .tabItem {
-                    // 
+                    // init comment
                     Label(Constants.homeString, systemImage: Constants.homeIconString)
                 }
             
