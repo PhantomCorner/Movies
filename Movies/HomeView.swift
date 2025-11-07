@@ -20,6 +20,7 @@ struct HomeView: View {
                         EmptyView()
                     case .fetching:
                         ProgressView()
+                        .frame(width: geo.size.width , height: geo.size.height)
                     case .success:
                     LazyVStack{
                         AsyncImage(url:URL(string:heroTestTitle)){
@@ -37,6 +38,7 @@ struct HomeView: View {
                                 }
                         }placeholder:{
                             ProgressView()
+                             
                         }
                         .frame(width:geo.size.width,height: geo.size.height * 0.85)
                     }
@@ -58,7 +60,7 @@ struct HomeView: View {
                     HorizontalListView(header: Constants.trendingMovieString, titles: viewModel.trendingMovies)
                     HorizontalListView(header: Constants.topRatedMovieString, titles: viewModel.topRatedMovies)
                     HorizontalListView(header: Constants.trendingTVString, titles: viewModel.trendingTV)
-                    HorizontalListView(header: Constants.topRatedTVString,titles: viewModel.topRatedTV)
+                    HorizontalListView(header: Constants.topRatedTVString, titles: viewModel.topRatedTV)
                     case .failed(let error):
                         Text("Error: \(error)")
                 }
