@@ -18,13 +18,18 @@ class ViewModel{
     // only viewmodel can access the status of response
     private(set) var homeStatus: FetchStatus = .notStarted
     private let dataFetcher = DataFetcher()
-    
+    var trendingTV: [Title] = []
     var trendingMovies: [Title] = []
-    
+    var topRatedMovies: [Title] = []
+    var topRatedTV : [Title] = []
     func getTitles() async {
         homeStatus = .fetching
         do{
-            trendingMovies = try await dataFetcher.fetchTitles(for: "movie")
+            trendingMovies = try await dataFetcher.fetchTitles(for: "movie", by: "trending")
+            topRatedMovies = try await dataFetcher.fetchTitles(for: "movie", by: "top_rated")
+            trendingTV = try await dataFetcher.fetchTitles(for: "tv", by: "trending")
+            topRatedTV = try await dataFetcher.fetchTitles(for: "tv", by: "top_rated")
+            
             homeStatus = .success
         }catch{
             print(error)
