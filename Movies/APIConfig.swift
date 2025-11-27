@@ -19,7 +19,7 @@ struct APIConfig:Decodable{
             print("Falied to load API config: \(error.localizedDescription)")
             return nil
         }
-        
+
     }()
     
     
